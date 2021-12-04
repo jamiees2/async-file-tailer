@@ -129,7 +129,8 @@ dist
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -201,3 +202,4 @@ GitHub.sublime-settings
 
 # End of https://www.toptal.com/developers/gitignore/api/osx,visualstudiocode,node,sublimetext
 #
+build/
