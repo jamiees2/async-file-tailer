@@ -29,7 +29,7 @@ type FSWatcherWithIterator = FSWatcher & {
   [Symbol.asyncIterator]: () => any;
 }
 
-class FileTailer {
+export class FileTailer {
     filepath: string;
     watcher: FSWatcherWithIterator | null;
     watching: boolean;
@@ -46,7 +46,7 @@ class FileTailer {
         this.logger = logger;
     }
 
-    async *watch() {
+    async *watch(): AsyncGenerator<string, void, unknown> {
         assert(!this.watching, "Can't watch multiple times");
         this.watching = true;
         try {
@@ -121,7 +121,7 @@ class FileTailer {
         }
     }
 
-    async _openFile(filepath: string): Promise<Descriptor | null> {
+    private async _openFile(filepath: string): Promise<Descriptor | null> {
         if (!fsExistsSync(filepath)) {
             return null;
         }
@@ -134,7 +134,7 @@ class FileTailer {
         return file_descriptor;
     }
 
-    _watchIterator(iterator_state: IteratorState<WatchEvent>) {
+    private _watchIterator(iterator_state: IteratorState<WatchEvent>) {
         return {
             next(): Promise<IteratorResult<WatchEvent, undefined>> {
                 if (iterator_state.running || iterator_state.push_queue.length !== 0) {
@@ -156,7 +156,7 @@ class FileTailer {
         };
     }
 
-    async _setupWatcher(): Promise<FSWatcherWithIterator | null> {
+    private async _setupWatcher(): Promise<FSWatcherWithIterator | null> {
         const watcher_setup = (this.watcher_setup = { running: true });
         this.watcher = null;
         try {
@@ -228,7 +228,7 @@ class FileTailer {
         }
     }
 
-    async *_readLines(descriptor: Descriptor | null) {
+    private async *_readLines(descriptor: Descriptor | null): AsyncGenerator<string, void, unknown> {
         assert(descriptor !== null, "Did not expect descriptor to be null");
         const buffer = Buffer.alloc(1024);
         while (true) {

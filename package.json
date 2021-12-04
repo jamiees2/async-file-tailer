@@ -1,5 +1,5 @@
 {
-  "name": "async-file-tailer",
+  "name": "async-tail",
   "version": "0.0.0",
   "description": "An asynchronous file tailer, which survives unlink() and rename operations",
   "main": "./build/src/index.js",
@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jamiees2/async-file-tailer"
+    "url": "https://github.com/jamiees2/async-tail"
   },
-  "bugs": "https://github.com/jamiees2/async-file-tailer/issues",
-  "homepage": "https://github.com/jamiees2/async-file-tailer/",
+  "bugs": "https://github.com/jamiees2/async-tail/issues",
+  "homepage": "https://github.com/jamiees2/async-tail/",
   "engines": {
     "node": ">=12.9.0"
   },
