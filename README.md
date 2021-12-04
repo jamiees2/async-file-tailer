@@ -13,7 +13,7 @@ A zero-dependency file-tailer that exposes an async interface and handles unlink
 
 ## Usage
 ```js
-const FileTailer = require("async-file-tailer");
+const FileTailer = require("async-file-tailer").default;
 
 const main = async () => {
     const tailer = new FileTailer("/tmp/foo");

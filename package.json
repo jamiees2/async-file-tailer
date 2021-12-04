@@ -2,8 +2,8 @@
   "name": "async-file-tailer",
   "version": "0.0.0",
   "description": "An asynchronous file tailer, which survives unlink() and rename operations",
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "main": "./build/src/index.js",
+  "types": "./build/src/index.d.ts",
   "license": "Apache-2.0",
   "bin": {},
   "author": {
