@@ -5,6 +5,8 @@
 
 [![NPM](https://nodeico.herokuapp.com/async-file-tailer.svg)](https://npmjs.com/package/async-file-tailer)
 
+A zero-dependency file-tailer that exposes an async interface and handles unlink() and rename() events
+
 ## Install
 
     $ npm install async-file-tailer
